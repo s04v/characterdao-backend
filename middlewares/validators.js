@@ -19,9 +19,9 @@ const CharacterSchema = Joi.object().keys({
     SocialLink: Joi.string().required(),
     Description: Joi.string().required(),
     MainPhoto: Joi.string().required(),
-    Photo1: Joi.string().required(),
-    Photo2: Joi.string().required(),
-    Photo3: Joi.string().required(),
+    Photo1: Joi.string().allow(null),
+    Photo2: Joi.string().allow(null),
+    Photo3: Joi.string().allow(null),
     IsPublic: Joi.allow('true', 'false').required()
 });
 

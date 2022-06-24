@@ -16,7 +16,16 @@ const User = db.define('User', {
     Password: {
         type: DataTypes.STRING(60),
         allowNull: false
+    },
+    Verified : {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    VerifyToken: {
+        type: DataTypes.STRING(32),
+        allowNull: true
     }
+
 },{
     timestamps: false
 });

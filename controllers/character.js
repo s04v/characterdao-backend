@@ -31,8 +31,17 @@ const create = (req, res) => {
     });
 }
 
-const get = (req, res) => {
-    CharacterService.get(req.params.id, req.userId).then(result => {
+const get =  (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1];
+
+    let userId = null;
+    if(token) {
+        const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+        userId = decoded.id;
+    }
+
+    CharacterService.get(req.params.id, userId).then(result => {
         if(result)
             return res.status(200).send(result);
 

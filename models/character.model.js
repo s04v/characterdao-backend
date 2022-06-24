@@ -32,19 +32,16 @@ const Character = db.define('Character', {
     },
     Photo1:{
         type: DataTypes.STRING(200),
-        allowNull: false
     },
     Photo2:{
         type: DataTypes.STRING(200),
-        allowNull: false
     },
     Photo3:{
         type: DataTypes.STRING(200),
-        allowNull: false
     },
     IsPublic: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: true
     }
 }, {
     timestamps: false

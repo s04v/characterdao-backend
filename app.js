@@ -26,6 +26,7 @@ app.use(express.json());
 
 app.post('/api/account/signin', AccountController.signIn);
 app.post('/api/account/signup', AccountController.signUp);
+app.get('/api/account/verify/:token', AccountController.verify);
 app.post('/api/character',CheckAuth, CharacterController.create);
 app.get('/api/characters', CharacterController.getAll);
 app.get('/api/characters/private',CheckAuth, CharacterController.getAllPrivate);

@@ -12,8 +12,8 @@ const authentication = (req, res, next) => {
 
         if(err)
             return res.sendStatus(403);
+
         req.userId = user.id;
-        console.log(user);
         next()
     })
 }

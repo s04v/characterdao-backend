@@ -22,17 +22,24 @@ const create = async (data) => {
 
 const get = async (id, userId) => {
     const result = await CharacterModel.findOne({where: {Id: id}});
-    if(result) {
-        if(result.IsPublic || result.UserId === userId)
-            return result;
-    }
+
+    console.log(result && (result.IsPublic || result.UserId === userId));
+    if(result && (result.IsPublic || result.UserId === userId))
+        return result;
 
     return null;
 }
 
 const update = async (data, id, userId) => {
     const result = await CharacterModel.findOne({where: {[Op.and]: [{Id: id}, {UserId: userId}]}});
+
     if(result) {
+        if(data.IsPublic) {
+            if (!result.Photo1 || !result.Photo2 || !result.Photo3) {
+                return null;
+            }
+        }
+
         result.set({...data});
         result.save();
     }

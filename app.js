@@ -15,7 +15,7 @@ const {UserSchema} = require("./middlewares/validators");
 const CheckAuth = require('./middlewares/authentication');
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://character-dao-frontend.herokuapp.com",
   credentials: true
 };
 

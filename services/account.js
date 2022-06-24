@@ -19,7 +19,7 @@ const signUp = async (email, password) => {
             <p>Hi,<br />
                 We just need to verify your email address<br /> <br />
                 
-                Verify your email address <a href='http://localhost:3000/verify/${verifyToken}'>link</a> <br />
+                Verify your email address <a href='https://character-dao-frontend.herokuapp.com//verify/${verifyToken}'>click</a> <br />
                 
             Thanks!</p>`
     };
